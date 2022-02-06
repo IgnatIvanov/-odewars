@@ -1,0 +1,38 @@
+<div class="description is-full-height has-auto-scrolling is-hidden mb-15px p-15px bg-ui-section" id="description_panel" style="display: block;"><h5>Description:</h5><div class="markdown prose max-w-none" id="description"><p>Your task is to make a function that can take any non-negative integer as an argument and return it with its digits in descending order. Essentially, rearrange the digits to create the highest possible number.</p>
+<h3 id="examples">Examples:</h3>
+<p>Input: <code>42145</code>
+Output: <code>54421</code></p>
+<p>Input: <code>145263</code>
+Output: <code>654321</code></p>
+<p>Input: <code>123456789</code>
+Output: <code>987654321</code></p>
+</div><div class="mt-15px"><span><i class="icon-moon-tag "></i></span><div class="keyword-tag">Fundamentals</div><div class="keyword-tag">Functions</div><div class="keyword-tag">Control Flow</div><div class="keyword-tag">Basic Language Features</div></div><p class="mt-15px"><a class="float-right" href="/kata/5467e4d82edf8bbf40000155/discuss/python">Suggest kata description edits</a></p></div>
+
+<div class="description is-full-height has-auto-scrolling mb-15px p-15px bg-ui-section is-hidden" id="fixture_panel" style="display: block;"><h5>Test Cases:</h5><pre class="p-2 overflow-x-auto"><code data-language="python"><span class="cm-keyword">import</span> <span class="cm-variable">codewars_test</span> <span class="cm-keyword">as</span> <span class="cm-variable">test</span>
+
+<span class="cm-keyword">try</span>:
+    <span class="cm-keyword">from</span> <span class="cm-variable">solution</span> <span class="cm-keyword">import</span> <span class="cm-variable">Descending_Order</span> <span class="cm-keyword">as</span> <span class="cm-variable">descending_order</span>
+<span class="cm-keyword">except</span> <span class="cm-variable">ImportError</span>:
+    <span class="cm-keyword">from</span> <span class="cm-variable">solution</span> <span class="cm-keyword">import</span> <span class="cm-variable">descending_order</span>
+
+<span class="cm-meta">@</span><span class="cm-meta">test</span>.<span class="cm-property">describe</span>(<span class="cm-string">"Fixed Tests"</span>)
+<span class="cm-keyword">def</span> <span class="cm-def">fixed_tests</span>():
+    <span class="cm-meta">@</span><span class="cm-meta">test</span>.<span class="cm-property">it</span>(<span class="cm-string">'Basic Test Cases'</span>)
+    <span class="cm-keyword">def</span> <span class="cm-def">basic_test_cases</span>():
+        <span class="cm-variable">test</span>.<span class="cm-property">assert_equals</span>(<span class="cm-variable">descending_order</span>(<span class="cm-number">0</span>), <span class="cm-number">0</span>)
+        <span class="cm-variable">test</span>.<span class="cm-property">assert_equals</span>(<span class="cm-variable">descending_order</span>(<span class="cm-number">1</span>), <span class="cm-number">1</span>)
+        <span class="cm-variable">test</span>.<span class="cm-property">assert_equals</span>(<span class="cm-variable">descending_order</span>(<span class="cm-number">111</span>), <span class="cm-number">111</span>)
+        <span class="cm-variable">test</span>.<span class="cm-property">assert_equals</span>(<span class="cm-variable">descending_order</span>(<span class="cm-number">15</span>), <span class="cm-number">51</span>)
+        <span class="cm-variable">test</span>.<span class="cm-property">assert_equals</span>(<span class="cm-variable">descending_order</span>(<span class="cm-number">1021</span>), <span class="cm-number">2110</span>)
+        <span class="cm-variable">test</span>.<span class="cm-property">assert_equals</span>(<span class="cm-variable">descending_order</span>(<span class="cm-number">123456789</span>), <span class="cm-number">987654321</span>)
+
+<span class="cm-meta">@</span><span class="cm-meta">test</span>.<span class="cm-property">describe</span>(<span class="cm-string">"Random tests"</span>)
+<span class="cm-keyword">def</span> <span class="cm-def">random_tests</span>():
+    <span class="cm-keyword">from</span> <span class="cm-variable">random</span> <span class="cm-keyword">import</span> <span class="cm-variable">randint</span>
+    
+    <span class="cm-keyword">for</span> <span class="cm-variable">_</span> <span class="cm-keyword">in</span> <span class="cm-builtin">range</span>(<span class="cm-number">50</span>):
+        <span class="cm-variable">n</span> <span class="cm-operator">=</span> <span class="cm-variable">randint</span>(<span class="cm-number">0</span>, <span class="cm-number">10</span><span class="cm-operator">*</span><span class="cm-operator">*</span><span class="cm-variable">randint</span>(<span class="cm-number">1</span>,<span class="cm-number">10</span>))
+        <span class="cm-variable">expected</span> <span class="cm-operator">=</span> <span class="cm-builtin">int</span>(<span class="cm-string">""</span>.<span class="cm-property">join</span>(<span class="cm-builtin">sorted</span>(<span class="cm-builtin">str</span>(<span class="cm-variable">n</span>), <span class="cm-variable">reverse</span><span class="cm-operator">=</span><span class="cm-keyword">True</span>)))
+        <span class="cm-meta">@</span><span class="cm-meta">test</span>.<span class="cm-property">it</span>(<span class="cm-string">f"testing for descending_order(</span>{<span class="cm-variable">n</span>}<span class="cm-string">)"</span>)
+        <span class="cm-keyword">def</span> <span class="cm-def">test_case</span>():
+            <span class="cm-variable">test</span>.<span class="cm-property">assert_equals</span>(<span class="cm-variable">descending_order</span>(<span class="cm-variable">n</span>),<span class="cm-variable">expected</span>)</code></pre><p class="mt-15px"><a class="float-right" href="/kata/5467e4d82edf8bbf40000155/discuss/python">Suggest test case edits</a></p></div>
